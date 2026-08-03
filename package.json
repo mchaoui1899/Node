@@ -10,7 +10,16 @@
   "author": "",
   "license": "ISC",
   "type": "commonjs",
-  "devDependencies": {
+  "dependencies": {
     "typescript": "^7.0.2"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mchaoui1899/Node.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mchaoui1899/Node/issues"
+  },
+  "homepage": "https://github.com/mchaoui1899/Node#readme"
 }
