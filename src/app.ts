@@ -3,6 +3,8 @@ import { type Request ,type Response  } from "express";
 import { requireAdmin } from "./middleware/auth";
 import { errorHandler } from "./middleware/error";
 import cookieParser from "cookie-parser" ; 
+import { startups } from "./Data/data";
+
 
 const app = express();
 
@@ -25,6 +27,12 @@ app.get("/home" , (req : Request,rep : Response)=>{
     });
 
 });
+
+app.get("/api" , (req : Request,res : Response)=>{ 
+
+    res.json(startups)
+
+} );
 
 app.post( "/Menu" ,(req : Request,rep : Response)=>{
 
@@ -52,5 +60,6 @@ app.use(errorHandler , (req : Request , res : Response )=>{
     )
 
 });
+
 
 export default app ;
