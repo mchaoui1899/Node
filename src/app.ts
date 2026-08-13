@@ -3,7 +3,7 @@ import { type Request ,type Response  } from "express";
 import { requireAdmin } from "./middleware/auth";
 import { errorHandler } from "./middleware/error";
 import cookieParser from "cookie-parser" ; 
-import { startups } from "./Data/data";
+import { startups , people } from "./Data/data";
 
 
 const app = express();
