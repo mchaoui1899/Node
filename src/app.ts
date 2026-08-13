@@ -4,7 +4,8 @@ import { requireAdmin } from "./middleware/auth";
 import { errorHandler } from "./middleware/error";
 import cookieParser from "cookie-parser" ; 
 import { startups , people } from "./Data/data";
-
+import {fetchMovies} from "./scripts/fetchMovies";
+import "dotenv/config";
 
 const app = express();
 
@@ -33,6 +34,18 @@ app.get("/api" , (req : Request,res : Response)=>{
     res.json(startups)
 
 } );
+app.get("/test-movies", async (req, res) => {
+  const movies = await fetchMovies();
+  res.json(movies);
+});
+
+app.get("/test", (req : Request , res : Response)=>{
+
+  res.send(people)
+
+})
+
+
 
 app.post( "/Menu" ,(req : Request,rep : Response)=>{
 
