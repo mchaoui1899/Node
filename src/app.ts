@@ -74,5 +74,15 @@ app.use(errorHandler , (req : Request , res : Response )=>{
 
 });
 
+app.get('/api/:category/:type', (req, res) => {
+
+    console.log(req.params)
+    res.json()
+
+})
+
+
+
+
 
 export default app ;
