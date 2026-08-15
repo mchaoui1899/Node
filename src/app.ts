@@ -69,6 +69,7 @@ app.use("/admin" , requireAdmin  , (res : Response,req : Request)=>{
 app.use(errorHandler , (req : Request , res : Response )=>{
 
     res.json(
+
         { message : "Error /Bug de server  imprévue "}
     )
 
@@ -81,8 +82,31 @@ app.get('/api/:category/:type', (req, res) => {
 
 })
 
+app.get("api/:field/:term",(req,res)=>{
+    
+    const {field  ,term} = req.params ;
+    
+
+     const filteredData = startups.filter(
+      (startup) => { 
+        const fieldVal = startup[field as keyof typeof startup] ;
+        if(typeof fieldVal == "string" )
+        {
+        return fieldVal.toLowerCase() === term.toLowerCase() ;
+        }
+        return false ; 
+    }
+    
+  )
+    res.json({field,term,results: filteredData});
+    
+
+})
+
+/*
 
 
 
+*/
 
 export default app ;
