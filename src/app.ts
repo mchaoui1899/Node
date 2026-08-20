@@ -6,6 +6,7 @@ import cookieParser from "cookie-parser" ;
 import { startups , people } from "./Data/data";
 import {fetchMovies} from "./scripts/fetchMovies";
 import "dotenv/config";
+import cors from 'cors' ; 
 
 const app = express();
 
@@ -110,3 +111,5 @@ app.get("api/:field/:term",(req,res)=>{
 */
 
 export default app ;
+
+

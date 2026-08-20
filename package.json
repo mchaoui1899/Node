@@ -30,6 +30,7 @@
   "homepage": "https://github.com/mchaoui1899/Node#readme",
   "devDependencies": {
     "@types/cookie-parser": "^1.4.10",
+    "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",
     "@types/mongoose": "^5.11.96",
     "@types/node": "^22.20.1",
