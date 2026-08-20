@@ -5,14 +5,36 @@ import { errorHandler } from "./middleware/error";
 import cookieParser from "cookie-parser" ; 
 import { startups , people } from "./Data/data";
 import {fetchMovies} from "./scripts/fetchMovies";
-import "dotenv/config";
 import cors from 'cors' ; 
+import mongoose from "mongoose";
+import "dotenv/config";
+
+
 
 const app = express();
-
 app.use(express.json());
+
+const MONGO_URI = process.env.MONGO_URI ; 
+
+if(!MONGO_URI)
+{
+
+    throw new Error ("URI de la base de donnée est inccorrecte ou nest pas definie dans .env") ; 
+}
+
+mongoose.connect(MONGO_URI)
+    .then(() => {
+    console.log('✅ Connexion réussie à MongoDB Atlas !');
+  })
+
+
+
 app.use(cookieParser())
 console.log(cookieParser());
+
+
+
+
 app.get("/" , (req : Request ,rep : Response  )=>{
 
     rep.json({
