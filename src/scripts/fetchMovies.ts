@@ -1,8 +1,16 @@
+import "dotenv/config";
 
 
 export const fetchMovies = async () => {
+  
+  const apiKey = process.env.TMDB_API_KEY;
+   if (!apiKey) {
+    console.error("⚠️ TMDB_API_KEY nest pas définie dans le fichier .env ou mal lu ");
+    return; 
+  } 
   const url = `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.TMDB_API_KEY}&language=fr-FR&page=1`;
 
+  
   try {
     const res = await fetch(url);
 
@@ -16,7 +24,7 @@ export const fetchMovies = async () => {
     console.log('Nombre total de pages:', data.total_pages);
     console.log('Films sur cette page:', data.results.length);
     console.log('Premier film exemple:', data.results[0]);
-    
+
 
     
     
