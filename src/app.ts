@@ -8,6 +8,8 @@ import {fetchMovies} from "./scripts/fetchMovies";
 import cors from 'cors' ; 
 import mongoose from "mongoose";
 import "dotenv/config";
+import { registerUser } from "./controllers/authentificationController";
+
 
 
 
@@ -57,6 +59,11 @@ app.get("/api" , (req : Request,res : Response)=>{
     res.json(startups)
 
 } );
+
+// --- Route d'inscription ---
+app.post("/api/register", registerUser);
+
+
 app.get("/test-movies", async (req, res) => {
   const movies = await fetchMovies();
   res.json(movies);
