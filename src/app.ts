@@ -60,7 +60,6 @@ app.get("/api" , (req : Request,res : Response)=>{
 
 } );
 
-// --- Route d'inscription ---
 app.post("/api/register", registerUser);
 
 
